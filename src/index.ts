@@ -12,8 +12,11 @@ app.get("/", (c) => c.redirect("https://su8ru.dev", 307));
 app.get("/:key", async (c) => {
   const key = c.req.param("key");
   const value = await LINK_KV.get(key);
-  if (value) return c.redirect(value, 307);
-  return c.notFound();
+  if (!value) return c.notFound();
+  const query = c.req.query();
+  const params = new URLSearchParams(query).toString();
+  const redirectUrl = params ? `${value}?${params}` : value;
+  return c.redirect(redirectUrl, 307);
 });
 
 app.fire();
