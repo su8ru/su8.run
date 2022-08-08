@@ -1,5 +1,6 @@
 import { Hono } from "hono";
 import { poweredBy } from "hono/powered-by";
+import about from "./about";
 
 declare const LINK_KV: KVNamespace;
 
@@ -8,6 +9,8 @@ const app = new Hono();
 app.use("*", poweredBy());
 
 app.get("/", (c) => c.redirect("https://su8ru.dev", 307));
+
+app.get("/about", (c) => c.text(about));
 
 app.get("/:key", async (c) => {
   const key = c.req.param("key");
