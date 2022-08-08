@@ -1,6 +1,16 @@
+type = "javascript"
+
 name = "su8-run"
+account_id = "8ba5faa0475fa7bb616e22ba96a42cc3"
 compatibility_date = "2022-08-07"
 main = "src/index.ts"
+
 kv_namespaces = [
   { binding = "LINK_KV", id = "4ad723e5c0f84e80932deb1650b7d060", preview_id = "d58f629d4fb54123a6114cee2577b829" }
 ]
+
+[build]
+command = "yarn install --frozen-lockfile && yarn build"
+
+[build.upload]
+format = "modules"
