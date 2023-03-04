@@ -8,7 +8,7 @@
     "export": "next export",
     "start": "next start",
     "lint": "next lint",
-    "publish": "n-run-s build export && wrangler pages publish out"
+    "publish": "n-run-s build export && wrangler pages publish out --project-name su8-run-pages"
   },
   "dependencies": {
     "next": "13.2.3",
