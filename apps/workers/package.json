@@ -1,0 +1,18 @@
+{
+  "name": "su8-run-workers",
+  "version": "0.0.0",
+  "scripts": {
+    "publish": "wrangler publish",
+    "build": "esbuild --bundle --outdir=dist ./src/index.ts",
+    "dev": "wrangler dev --local",
+    "lint": "eslint --max-warnings=0 src && prettier --check '*.{json,js}' 'src/**/*.{js,ts}'",
+    "lint:fix": "eslint --fix src && prettier --write '*.{json,js}' 'src/**/*.{js,ts}'"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^3.14.1",
+    "esbuild": "^0.17.11"
+  },
+  "dependencies": {
+    "hono": "^2.0.7"
+  }
+}

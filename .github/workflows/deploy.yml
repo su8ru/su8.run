@@ -6,9 +6,9 @@ on:
       - main
 
 jobs:
-  deploy:
+  deploy-workers:
     runs-on: ubuntu-latest
-    name: Deploy
+    name: Deploy Workers
     steps:
       - uses: actions/checkout@v3
       - name: Set Up Node
@@ -16,7 +16,11 @@ jobs:
         with:
           node-version: "16"
           cache: "yarn"
+      - name: Install
+        run: yarn install --immutable
+      - name: Lint
+        run: yarn lint:workers
       - name: Publish
-        uses: cloudflare/wrangler-action@2.0.0
-        with:
-          apiToken: ${{ secrets.CF_API_TOKEN }}
+        run: yarn publish:workers
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CF_API_TOKEN }}

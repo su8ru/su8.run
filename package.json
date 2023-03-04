@@ -1,27 +1,27 @@
 {
-  "name": "su8.run",
-  "version": "0.0.0",
   "private": true,
+  "license": "MIT",
+  "workspaces": [
+    "apps/*"
+  ],
+  "packageManager": "yarn@3.4.1",
   "scripts": {
-    "publish": "wrangler publish",
-    "build": "esbuild --bundle --outdir=dist ./src/index.ts",
-    "dev": "wrangler dev --local",
-    "lint": "eslint --max-warnings=0 src && prettier --check '*.{json,js}' 'src/**/*.{js,ts}'",
-    "lint:fix": "eslint --fix src && prettier --write '*.{json,js}' 'src/**/*.{js,ts}'"
+    "dev:workers": "yarn workspace su8-run-workers run dev",
+    "dev": "run-p 'dev:*'",
+    "publish:workers": "yarn workspace su8-run-workers run publish",
+    "publish": "run-p 'publish:*'",
+    "lint:workers": "yarn workspace su8-run-workers run lint",
+    "lint": "run-p 'lint:*'"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^3.14.1",
-    "@typescript-eslint/eslint-plugin": "^5.32.0",
-    "@typescript-eslint/parser": "^5.32.0",
-    "esbuild": "^0.14.53",
-    "eslint": "^8.21.0",
-    "eslint-config-prettier": "^8.5.0",
+    "@typescript-eslint/eslint-plugin": "^5.54.0",
+    "@typescript-eslint/parser": "^5.54.0",
+    "eslint": "^8.35.0",
+    "eslint-config-prettier": "^8.6.0",
     "eslint-config-typescript": "^3.0.0",
-    "prettier": "^2.7.1",
-    "typescript": "^4.7.4",
-    "wrangler": "2.0.24"
-  },
-  "dependencies": {
-    "hono": "^2.0.7"
+    "notios": "^0.4.0",
+    "prettier": "^2.8.4",
+    "typescript": "^4.9.5",
+    "wrangler": "^2.12.0"
   }
 }

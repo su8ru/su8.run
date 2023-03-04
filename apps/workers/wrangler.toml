@@ -11,4 +11,3 @@ kv_namespaces = [
 
 [build]
 command = "yarn build"
-
