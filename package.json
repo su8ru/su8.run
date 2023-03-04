@@ -6,12 +6,15 @@
   ],
   "packageManager": "yarn@3.4.1",
   "scripts": {
-    "dev:workers": "yarn workspace su8-run-workers run dev",
-    "dev": "run-p 'dev:*'",
-    "publish:workers": "yarn workspace su8-run-workers run publish",
-    "publish": "run-p 'publish:*'",
-    "lint:workers": "yarn workspace su8-run-workers run lint",
-    "lint": "run-p 'lint:*'"
+    "dev:pages": "yarn workspace pages run dev",
+    "dev:workers": "yarn workspace workers run dev",
+    "dev": "n-run-p 'dev:*'",
+    "publish:pages": "yarn workspace pages run publish",
+    "publish:workers": "yarn workspace workers run publish",
+    "publish": "n-run-p 'publish:*'",
+    "lint:pages": "yarn workspace pages run lint",
+    "lint:workers": "yarn workspace workers run lint",
+    "lint": "n-run-p 'lint:*'"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.54.0",

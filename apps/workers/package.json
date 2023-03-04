@@ -1,6 +1,7 @@
 {
-  "name": "su8-run-workers",
+  "name": "workers",
   "version": "0.0.0",
+  "private": true,
   "scripts": {
     "publish": "wrangler publish",
     "build": "esbuild --bundle --outdir=dist ./src/index.ts",
