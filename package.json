@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "wrangler dev",
     "publish": "wrangler publish",
     "build": "esbuild --bundle --outdir=dist ./src/index.ts",
     "dev": "wrangler dev --local",
