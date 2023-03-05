@@ -1,9 +1,10 @@
 import { FC } from "react";
-import { IconButton, Tooltip, useColorModeValue } from "@chakra-ui/react";
+import { IconButton, Tooltip } from "@chakra-ui/react";
 import { SiGithub } from "react-icons/si";
+import { useSubaruGray } from "libs/colors";
 
 const GitHubButton: FC = () => {
-  const iconColor = useColorModeValue("gray.500", "gray.400");
+  const iconColor = useSubaruGray();
 
   return (
     <Tooltip label="GitHub repository" placement="top">

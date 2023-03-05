@@ -5,9 +5,15 @@ export const pagesPath = {
 export type PagesPath = typeof pagesPath
 
 export const staticPath = {
-  avatar_jpg: '/avatar.jpg',
-  avatar_webp: '/avatar.webp',
-  favicon_ico: '/favicon.ico'
+  favicon_ico: '/favicon.ico',
+  images: {
+    $6stars_jpg: '/images/6stars.jpg',
+    $6stars_webp: '/images/6stars.webp',
+    avatar_jpg: '/images/avatar.jpg',
+    avatar_webp: '/images/avatar.webp',
+    portfolio_jpg: '/images/portfolio.jpg',
+    portfolio_webp: '/images/portfolio.webp'
+  }
 } as const
 
 export type StaticPath = typeof staticPath

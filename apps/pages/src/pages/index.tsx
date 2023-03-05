@@ -4,17 +4,19 @@ import {
   Box,
   Container,
   Divider,
+  Flex,
   Heading,
   Text,
-  useColorModeValue,
   VStack,
   Wrap,
 } from "@chakra-ui/react";
 import Image from "components/image";
-import { staticPath } from "../libs/$path";
+import BigCard from "components/bigCard";
+import { staticPath } from "libs/$path";
+import { useSubaruGray } from "libs/colors";
 
 const Home: NextPage = () => {
-  const grayColor = useColorModeValue("gray.500", "gray.400");
+  const grayColor = useSubaruGray();
 
   return (
     <Container maxW="3xl" pt="8" pb="12">
@@ -27,15 +29,15 @@ const Home: NextPage = () => {
       <Wrap spacing="6" my="8" as="div" align="center">
         <Box w="20" h="20" borderRadius="full" overflow="hidden">
           <Image
-            webp={staticPath.avatar_webp}
-            jpg={staticPath.avatar_jpg}
+            webp={staticPath.images.avatar_webp}
+            jpg={staticPath.images.avatar_jpg}
             alt="avatar"
             w="512"
             h="512"
           />
         </Box>
         <VStack spacing="2" align="left">
-          <Heading as="h1" size="xl">
+          <Heading as="h1" fontSize="3xl">
             subaru links
           </Heading>
           <Text fontSize="sm" color={grayColor}>
@@ -45,6 +47,26 @@ const Home: NextPage = () => {
         </VStack>
       </Wrap>
       <Divider />
+      <Box as="section" mt="12">
+        <Heading as="h2" fontSize="2xl">
+          About me
+        </Heading>
+        <Flex direction="row" flexWrap="wrap" gap="4" mt="6">
+          <BigCard
+            webp={staticPath.images.portfolio_webp}
+            jpg={staticPath.images.portfolio_jpg}
+            alt="portfolio"
+            title="portfolio"
+            href="https://su8ru.dev"
+          />
+          <BigCard
+            webp={staticPath.images.$6stars_webp}
+            jpg={staticPath.images.$6stars_jpg}
+            alt="coming soon"
+            title="?"
+          />
+        </Flex>
+      </Box>
     </Container>
   );
 };

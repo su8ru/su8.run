@@ -1,17 +1,11 @@
 import { FC } from "react";
-import {
-  Box,
-  Divider,
-  HStack,
-  Text,
-  VStack,
-  useColorModeValue,
-} from "@chakra-ui/react";
-import GitHubButton from "./githubButton";
-import ColorModeButton from "./colorModeButton";
+import { Box, Divider, HStack, Text, VStack } from "@chakra-ui/react";
+import GitHubButton from "components/githubButton";
+import ColorModeButton from "components/colorModeButton";
+import { useSubaruGray } from "libs/colors";
 
 const Footer: FC = () => {
-  const color = useColorModeValue("gray.500", "gray.400");
+  const color = useSubaruGray();
 
   return (
     <>

@@ -1,15 +1,11 @@
 import { FC } from "react";
 import { MdOutlineDarkMode, MdOutlineLightMode } from "react-icons/md";
-import {
-  IconButton,
-  Tooltip,
-  useColorMode,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { IconButton, Tooltip, useColorMode } from "@chakra-ui/react";
+import { useSubaruGray } from "libs/colors";
 
 const ColorModeButton: FC = () => {
   const { colorMode, toggleColorMode } = useColorMode();
-  const iconColor = useColorModeValue("gray.500", "gray.400");
+  const iconColor = useSubaruGray();
 
   return (
     <Tooltip
